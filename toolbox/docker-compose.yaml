@@ -1,0 +1,11 @@
+
+services:
+  toolbox:
+    build: ./
+    command: "sleep 1000000"
+    networks:
+      - noinet
+
+networks: 
+  noinet:
+    internal: true

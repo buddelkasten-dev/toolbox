@@ -1,0 +1,24 @@
+services:
+  open-webui:
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:v0.6.43
+    restart: unless-stopped
+    environment:
+      - 'OLLAMA_BASE_URL=http://host.docker.internal:11434'
+    ports:
+      - "3000:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui_storage:/app/backend/data
+    
+  open-code:
+    container_name: open-code
+    image: opencode:latest
+    restart: unless-stopped
+    command: "sleep 100000"
+    #volumes:
+    #  - ${PWD}/opencode.json:/home/dev/.config/opencode/
+
+volumes:
+  open-webui_storage:

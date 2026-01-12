@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OpenWebUI",
+      "options": {
+        "baseURL": "http://open-webui:8080/api"
+      },
+      "models": {
+        "qwen2.5-coder:7b": {
+          "name": "qwen2.5-coder:7b"
+        }
+      }
+    }
+  }
+}
