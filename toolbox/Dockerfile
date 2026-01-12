@@ -1,8 +1,8 @@
 FROM fedora:43
 
 # ========= Base Packages =========
-RUN dnf copr enable -y dejan/lazygit \
-  && dnf install -y \
+RUN dnf copr enable -y dejan/lazygit && sudo dnf copr enable -y luminoso/k9s
+RUN dnf install -y \
     @development-tools \
     ca-certificates \
     curl \
@@ -22,6 +22,8 @@ RUN dnf copr enable -y dejan/lazygit \
     wget \
     fzf \
     zig \
+    kubectl \
+    k9s \
   && dnf clean all
 
 # fd Fix
